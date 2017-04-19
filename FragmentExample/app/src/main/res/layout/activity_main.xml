@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/fragment"
-        android:name="com.gregttn.fragmentexample.TestFragment"
+        android:name="com.gregttn.fragmentexample.fragments.TestFragment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
@@ -27,13 +27,14 @@
 
     </FrameLayout>
 
-    <Button
-        android:id="@+id/swap_fragments"
-        android:layout_width="wrap_content"
+    <fragment
+        android:id="@+id/selection_fragment"
+        android:name="com.gregttn.fragmentexample.fragments.ShowSelectionFragment"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="Swap Fragments"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
+
 </android.support.constraint.ConstraintLayout>
