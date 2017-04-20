@@ -41,6 +41,13 @@ public class ShowSelectionFragment extends Fragment {
         }
     }
 
+    public void updateSelectedFragment(SelectedFragment selectedFragment) {
+        RadioGroup radioGroup = (RadioGroup) getView().findViewById(R.id.select_fragment_radio_group);
+
+        int checkedId = selectedFragment == SelectedFragment.ONE ? R.id.one_radio_button : R.id.two_radio_button;
+        radioGroup.check(checkedId);
+    }
+
     private void fragmentSelected(int checkedId) {
         SelectedFragment selectedFragment = R.id.one_radio_button == checkedId ? SelectedFragment.ONE : SelectedFragment.TWO;
         listener.onFragmentSelected(selectedFragment);

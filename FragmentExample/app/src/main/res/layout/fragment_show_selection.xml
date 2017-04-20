@@ -23,8 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
-            android:orientation="horizontal"
-            android:checkedButton="@+id/one_radio_button">
+            android:orientation="horizontal">
 
             <RadioButton
                 android:id="@+id/one_radio_button"

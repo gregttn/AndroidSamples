@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements ShowSelectionFrag
             }
 
             showFragment(SelectedFragment.ONE);
+            updateFragmentSelection(SelectedFragment.ONE);
         }
     }
 
@@ -38,6 +39,13 @@ public class MainActivity extends AppCompatActivity implements ShowSelectionFrag
             .beginTransaction()
             .replace(R.id.dynamic_fragment_container, fragment)
             .commit();
+    }
+
+    private void updateFragmentSelection(SelectedFragment selectedFragment) {
+        ShowSelectionFragment selectionFragment = (ShowSelectionFragment) getSupportFragmentManager().findFragmentById(R.id.selection_fragment);
+        if(selectionFragment != null) {
+            selectionFragment.updateSelectedFragment(selectedFragment);
+        }
     }
 
     private Fragment getFragmentToShow(SelectedFragment selectedFragment) {
