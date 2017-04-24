@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">DataStorage</string>
+    <string name="preferences_file">preferences</string>
+    <string name="storage_file">sample_file_storage</string>
+    <string name="external_storage_file">sample_external_file_storage</string>
+    <string name="saved_toast">Saved</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
