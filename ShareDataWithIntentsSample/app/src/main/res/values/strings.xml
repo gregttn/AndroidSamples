@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ShareDataWithIntentsSample</string>
+    <string name="text_to_share_hint">Enter text to share ...</string>
+</resources>
