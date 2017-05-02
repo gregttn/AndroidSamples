@@ -12,6 +12,7 @@ import android.widget.Toast;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    private static final int SEND_REQUEST = 91;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +40,29 @@ public class MainActivity extends AppCompatActivity {
             String chooserTitle = getString(R.string.app_chooser_title);
             Intent chooserIntent = Intent.createChooser(shareIntent, chooserTitle);
 
-            startActivity(chooserIntent);
+            startActivityForResult(chooserIntent, SEND_REQUEST);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == SEND_REQUEST) {
+            String message = "Share result: ";
+
+            switch (resultCode) {
+                case RESULT_OK:
+                    message += "OK";
+                    break;
+                case RESULT_CANCELED:
+                    message += "CANCELLED";
+                    break;
+
+                default:
+                    message += "UNKNOWN";
+                    break;
+            }
+
+            Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
         }
     }
 }
