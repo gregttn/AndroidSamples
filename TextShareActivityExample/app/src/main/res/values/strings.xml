@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">TextShareActivityExample</string>
+    <string name="share_content_label">Receive Content To Share</string>
+    <string name="share_content_hint">Received share content should appear here...</string>
+    <string name="share_button_content">Share</string>
+    <string name="cancel_button_content">Cancel</string>
+</resources>
