@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">SystemPermissionsSample</string>
+    <string name="read_calendar_permission_text">Read Calendar</string>
+    <string name="write_calendar_permission_text">Write to Calendar</string>
+    <string name="read_contacts_permission_text">Read Contacts</string>
+    <string name="write_contacts_permission_text">Write contacts</string>
+    <string name="use_camera_permission_text">Use camera</string>
+    <string name="check_button">Check</string>
+    <string name="request_button">Request</string>
+</resources>
