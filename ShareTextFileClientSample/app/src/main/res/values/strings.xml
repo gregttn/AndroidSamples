@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ShareTextFileClientSample</string>
+    <string name="request_button_text">Request File Content</string>
+    <string name="filename_label">Filename</string>
+    <string name="mime_type_label">MIME Type</string>
+    <string name="size_label">Size</string>
+</resources>
