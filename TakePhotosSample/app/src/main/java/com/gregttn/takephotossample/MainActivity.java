@@ -2,11 +2,13 @@ package com.gregttn.takephotossample;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -34,6 +36,17 @@ public class MainActivity extends AppCompatActivity {
 
         if (canTakePicture) {
             startActivityForResult(requestPhoto, REQUEST_PHOTO_FLAG);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_PHOTO_FLAG && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            Bitmap image = (Bitmap) extras.get("data");
+
+            ImageView imageView = (ImageView) findViewById(R.id.preview_image_view);
+            imageView.setImageBitmap(image);
         }
     }
 }
