@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -48,17 +49,19 @@ public class MainActivity extends AppCompatActivity {
         boolean canTakePicture = requestPhoto.resolveActivity(getPackageManager()) != null;
         if (canTakePicture) {
 
-            try {
-                File photoFile = createImageFile();
+            if (shouldSavePictureOnDisk()) {
+                try {
+                    File photoFile = createImageFile();
 
-                if(photoFile != null) {
-                    photoUri = FileProvider.getUriForFile(this, "com.gregttn.takephotossample.fileprovider", photoFile);
+                    if (photoFile != null) {
+                        photoUri = FileProvider.getUriForFile(this, "com.gregttn.takephotossample.fileprovider", photoFile);
 
-                    requestPhoto.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
+                        requestPhoto.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
+                    }
+                } catch (IOException e) {
+                    Log.w(getClass().getName(), "Cannot create file to save the photo", e);
+                    Toast.makeText(this, "Photo file could not be created!", Toast.LENGTH_LONG).show();
                 }
-            } catch (IOException e) {
-                Log.w(getClass().getName(), "Cannot create file to save the photo", e);
-                Toast.makeText(this, "Photo file could not be created!", Toast.LENGTH_LONG).show();
             }
 
             startActivityForResult(requestPhoto, REQUEST_PHOTO_FLAG);
@@ -90,5 +93,11 @@ public class MainActivity extends AppCompatActivity {
                 ".jpg",
                 getExternalFilesDir(Environment.DIRECTORY_PICTURES)
         );
+    }
+
+    private boolean shouldSavePictureOnDisk() {
+        CheckBox saveCheckBox = (CheckBox) findViewById(R.id.save_image_checkbox);
+
+        return saveCheckBox.isChecked();
     }
 }

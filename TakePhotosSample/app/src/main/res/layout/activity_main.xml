@@ -21,6 +21,14 @@
             android:onClick="onTakePictureClicked"
             android:text="@string/take_picture_button"
             android:layout_gravity="center"/>
+
+        <CheckBox
+            android:id="@+id/save_image_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/save_image_text"
+            android:layout_gravity="center"/>
+
         <ImageView
             android:id="@+id/preview_image_view"
             android:layout_width="match_parent"
