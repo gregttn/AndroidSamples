@@ -22,16 +22,28 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        releaseCamera();
+        super.onDestroy();
+    }
+
     private boolean openCamera() {
         try {
             camera = Camera.open();
             return camera != null;
-        }
-        catch(Exception e) {
+        } catch(Exception e) {
             Log.e(getClass().getSimpleName(), "Couldn't open camera", e);
         }
 
         return false;
+    }
+
+    private void releaseCamera() {
+        if (camera != null)  {
+            camera.release();
+            camera = null;
+        }
     }
 
     private boolean hasCamera() {
