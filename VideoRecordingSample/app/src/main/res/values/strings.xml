@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">VideoRecordingSample</string>
+    <string name="record_video_button_content">Record Video</string>
+</resources>
