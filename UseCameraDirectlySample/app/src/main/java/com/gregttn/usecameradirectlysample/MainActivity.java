@@ -1,13 +1,40 @@
 package com.gregttn.usecameradirectlysample;
 
+import android.content.pm.PackageManager;
+import android.hardware.Camera;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    private Camera camera;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if(hasCamera()) {
+            openCamera();
+        } else {
+            Toast.makeText(this, "No camera detected!", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private boolean openCamera() {
+        try {
+            camera = Camera.open();
+            return camera != null;
+        }
+        catch(Exception e) {
+            Log.e(getClass().getSimpleName(), "Couldn't open camera", e);
+        }
+
+        return false;
+    }
+
+    private boolean hasCamera() {
+        return getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA);
     }
 }
