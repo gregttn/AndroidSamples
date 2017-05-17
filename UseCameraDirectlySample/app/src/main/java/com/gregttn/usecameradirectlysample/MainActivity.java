@@ -5,10 +5,12 @@ import android.hardware.Camera;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private Camera camera;
+    private CameraPreview cameraPreview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +18,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         if(hasCamera()) {
-            openCamera();
+            if(openCamera()) {
+                cameraPreview = new CameraPreview(this, camera);
+
+                FrameLayout previewContainer = (FrameLayout) findViewById(R.id.camera_preview);
+                previewContainer.addView(cameraPreview);
+            }
         } else {
             Toast.makeText(this, "No camera detected!", Toast.LENGTH_LONG).show();
         }
