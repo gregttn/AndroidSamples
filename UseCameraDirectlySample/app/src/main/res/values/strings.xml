@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">UseCameraDirectlySample</string>
+    <string name="take_picture_button_content">Take Picture</string>
 </resources>
