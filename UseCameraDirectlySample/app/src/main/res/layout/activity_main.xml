@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/take_picture_button_content"
-            android:onClick="onTakePictureClicked"/>
+            android:onClick="onTakePictureClicked" />
 
         <FrameLayout
             android:id="@+id/camera_preview"

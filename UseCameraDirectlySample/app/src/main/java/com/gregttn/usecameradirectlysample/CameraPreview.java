@@ -45,7 +45,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         try {
             camera.setPreviewDisplay(holder);
             camera.startPreview();
-        } catch (IOException e) {
+        } catch (Exception e) {
             Log.e(getClass().getSimpleName(), "Cannot set the camera", e);
         }
     }
@@ -57,4 +57,10 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
             Log.e(getClass().getSimpleName(), "Cannot stop camera", e);
         }
     }
+
+    public void restartPreview() {
+        stopPreview();
+        startPreview();
+    }
+
 }
