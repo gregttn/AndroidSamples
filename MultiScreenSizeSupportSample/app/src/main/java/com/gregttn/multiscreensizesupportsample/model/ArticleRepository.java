@@ -16,4 +16,8 @@ public class ArticleRepository {
     public List<Article> getArticles() {
         return new ArrayList<>(articles);
     }
+
+    public Article getArticleAt(int position) {
+        return articles.get(position);
+    }
 }
