@@ -1,7 +1,6 @@
 package com.gregttn.multiscreensizesupportsample;
 
 import android.content.Intent;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -23,10 +22,9 @@ public class MainActivity extends AppCompatActivity implements ArticleListFragme
         articleRepository = new ArticleRepository();
         articleListFragment.updateArticles(articleRepository.getArticles());
 
-        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.article_view_fragment);
-        if(fragment != null) {
-            hasTwoPanes = true;
-            articleViewFragment = (ArticleViewFragment) fragment;
+        hasTwoPanes = getResources().getBoolean(R.bool.has_two_panes);
+        if(hasTwoPanes) {
+            articleViewFragment = (ArticleViewFragment) getSupportFragmentManager().findFragmentById(R.id.article_view_fragment);
         }
     }
 
