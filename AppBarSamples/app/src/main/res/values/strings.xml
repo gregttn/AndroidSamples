@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AppBarSamples</string>
+    <string name="bookmark_title">Bookmark</string>
+    <string name="settings_title">Settings</string>
 </resources>
