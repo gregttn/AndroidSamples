@@ -1,5 +1,6 @@
 package com.gregttn.appbarsamples;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -29,7 +30,8 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.bookmark:
-                Toast.makeText(this, "Selected bookmark", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, ChildActivity.class);
+                startActivity(intent);
                 return true;
             case R.id.settings:
                 Toast.makeText(this, "Selected settings", Toast.LENGTH_SHORT).show();
