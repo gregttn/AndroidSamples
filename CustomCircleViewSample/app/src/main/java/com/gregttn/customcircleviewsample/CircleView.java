@@ -20,4 +20,15 @@ public class CircleView extends View {
             attributes.recycle();
         }
     }
+
+
+    public boolean isShowInnerCircle() {
+        return showInnerCircle;
+    }
+
+    public void setShowInnerCircle(boolean showInnerCircle) {
+        this.showInnerCircle = showInnerCircle;
+        invalidate();
+        requestLayout();
+    }
 }
