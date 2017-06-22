@@ -13,7 +13,9 @@ public class CircleView extends View {
     private boolean showInnerCircle = false;
 
     private Paint circleFill;
+    private Paint innerCircleFill;
     private RectF circleFrame;
+    private RectF innerCircleFrame;
 
     public CircleView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -33,11 +35,21 @@ public class CircleView extends View {
         circleFill = new Paint(Paint.ANTI_ALIAS_FLAG);
         circleFill.setStyle(Paint.Style.FILL);
         circleFill.setColor(0xff303F9F);
+
+        innerCircleFill = new Paint(Paint.ANTI_ALIAS_FLAG);
+        innerCircleFill.setStyle(Paint.Style.FILL);
+        innerCircleFill.setColor(0xffffff00);
     }
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         circleFrame = new RectF(0, 0, getWidth(), getHeight());
+
+        int innerXInset = w / 4;
+        int innerYInset = h / 4;
+
+        innerCircleFrame = new RectF(circleFrame);
+        innerCircleFrame.inset(innerXInset, innerYInset);
 
         super.onSizeChanged(w, h, oldw, oldh);
     }
@@ -47,6 +59,10 @@ public class CircleView extends View {
         super.onDraw(canvas);
 
         canvas.drawOval(circleFrame, circleFill);
+
+        if(showInnerCircle) {
+            canvas.drawOval(innerCircleFrame, innerCircleFill);
+        }
     }
 
     public boolean isShowInnerCircle() {
