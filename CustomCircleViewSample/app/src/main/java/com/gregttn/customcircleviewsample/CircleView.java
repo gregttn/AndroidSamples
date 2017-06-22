@@ -43,7 +43,11 @@ public class CircleView extends View {
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-        circleFrame = new RectF(0, 0, getWidth(), getHeight());
+        circleFrame = new RectF(getPaddingLeft(),
+                getPaddingTop(),
+                getWidth() - getPaddingRight(),
+                getHeight() - getPaddingBottom()
+            );
 
         int innerXInset = w / 4;
         int innerYInset = h / 4;
