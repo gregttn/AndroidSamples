@@ -7,11 +7,15 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 
 public class CircleView extends View {
-    private boolean showInnerCircle = false;
+    private final GestureDetector gestureDetector;
 
+    private boolean showInnerCircle = false;
     private Paint circleFill;
     private Paint innerCircleFill;
     private RectF circleFrame;
@@ -29,6 +33,8 @@ public class CircleView extends View {
         }
 
         init();
+
+        gestureDetector = new GestureDetector(context, new CustomGestureListener());
     }
 
     private void init() {
@@ -69,6 +75,11 @@ public class CircleView extends View {
         }
     }
 
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        return gestureDetector.onTouchEvent(event);
+    }
+
     public boolean isShowInnerCircle() {
         return showInnerCircle;
     }
@@ -77,5 +88,14 @@ public class CircleView extends View {
         this.showInnerCircle = showInnerCircle;
         invalidate();
         requestLayout();
+    }
+
+    class CustomGestureListener extends GestureDetector.SimpleOnGestureListener {
+        @Override
+        public boolean onDown(MotionEvent e) {
+            Log.i(getClass().getName(), "onDown event");
+
+            return true;
+        }
     }
 }
