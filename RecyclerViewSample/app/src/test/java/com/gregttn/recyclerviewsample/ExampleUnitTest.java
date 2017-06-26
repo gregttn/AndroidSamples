@@ -1,4 +1,4 @@
-package com.gregttn.recyvlerviewsample;
+package com.gregttn.recyclerviewsample;
 
 import org.junit.Test;
 

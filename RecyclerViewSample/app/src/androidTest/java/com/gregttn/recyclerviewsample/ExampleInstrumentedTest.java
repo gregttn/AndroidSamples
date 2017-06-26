@@ -1,4 +1,4 @@
-package com.gregttn.recyvlerviewsample;
+package com.gregttn.recyclerviewsample;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.gregttn.recyvlerviewsample", appContext.getPackageName());
+        assertEquals("com.gregttn.recyclerviewsample", appContext.getPackageName());
     }
 }

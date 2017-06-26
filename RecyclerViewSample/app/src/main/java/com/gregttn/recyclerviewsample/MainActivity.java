@@ -1,4 +1,4 @@
-package com.gregttn.recyvlerviewsample;
+package com.gregttn.recyclerviewsample;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
