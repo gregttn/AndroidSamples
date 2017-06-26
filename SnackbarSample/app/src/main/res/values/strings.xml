@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SnackbarSample</string>
+    <string name="test_snackbar">Test Snackbar</string>
+    <string name="show_snackbar">Show Snackbar</string>
 </resources>
